@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authorization;
 using Blog.IdentityServer.Authorization;
 using Microsoft.AspNetCore.HttpOverrides;
 using IdentityServer4.Extensions;
+using AspNetCoreRateLimit;
 
 namespace Blog.IdentityServer
 {
@@ -35,7 +36,8 @@ namespace Blog.IdentityServer
             services.AddSameSiteCookiePolicy();
 
             string connectionStringFile = Configuration.GetConnectionString("DefaultConnection_file");
-            var connectionString = File.Exists(connectionStringFile) ? File.ReadAllText(connectionStringFile).Trim() : Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = File.Exists(connectionStringFile) ? File.ReadAllText(connectionStringFile).Trim() :
+                Configuration.GetConnectionString("DefaultConnection");
             var isMysql = Configuration.GetConnectionString("IsMysql").ObjToBool();
 
 
@@ -48,7 +50,8 @@ namespace Blog.IdentityServer
             if (isMysql)
             {
                 // mysql
-                services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(connectionString));
+                services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(connectionString,
+                    Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.18-mysql")));
             }
             else
             {
@@ -166,7 +169,8 @@ namespace Blog.IdentityServer
                 {
                     if (isMysql)
                     {
-                        options.ConfigureDbContext = b => b.UseMySql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                        options.ConfigureDbContext = b => b.UseMySql(connectionString,
+                    Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.18-mysql"), sql => sql.MigrationsAssembly(migrationsAssembly));
                     }
                     else
                     {
@@ -178,7 +182,8 @@ namespace Blog.IdentityServer
                 {
                     if (isMysql)
                     {
-                        options.ConfigureDbContext = b => b.UseMySql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                        options.ConfigureDbContext = b => b.UseMySql(connectionString,
+                    Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.18-mysql"), sql => sql.MigrationsAssembly(migrationsAssembly));
                     }
                     else
                     {
@@ -204,7 +209,7 @@ namespace Blog.IdentityServer
             });
 
             services.AddSingleton<IAuthorizationHandler, ClaimsRequirementHandler>();
-
+            services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
             services.AddIpPolicyRateLimitSetup(Configuration);
 
 
