@@ -117,51 +117,51 @@ namespace Blog.IdentityServer
                     }
                 },
                 // 3、nuxt.tbug 前端nuxt项目
-                //new Client {
-                //    ClientId = "tibugnuxtjs",
-                //    ClientName = "Nuxt.tBug JavaScript Client",
-                //    AllowedGrantTypes = GrantTypes.Implicit,
-                //    AllowAccessTokensViaBrowser = true,
+                new Client {
+                    ClientId = "tibugnuxtjs",
+                    ClientName = "Nuxt.tBug JavaScript Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
 
-                //    RedirectUris =           { "http://tibug.neters.club/callback" },
-                //    PostLogoutRedirectUris = { "http://tibug.neters.club" },
-                //    AllowedCorsOrigins =     { "http://tibug.neters.club" },
+                    RedirectUris =           { "http://tibug.neters.club/callback" },
+                    PostLogoutRedirectUris = { "http://tibug.neters.club" },
+                    AllowedCorsOrigins =     { "http://tibug.neters.club" },
 
-                //    AccessTokenLifetime=3600,
+                    AccessTokenLifetime=3600,
 
-                //    AllowedScopes = {
-                //        IdentityServerConstants.StandardScopes.OpenId,
-                //        IdentityServerConstants.StandardScopes.Profile,
-                //        "roles",
-                //        "blog.core.api"
-                //    }
-                //},
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "roles",
+                        "blog.core.api"
+                    }
+                },
                 // 4、DDD 后端MVC项目
-                //new Client
-                //{
-                //    ClientId = "chrisdddmvc",
-                //    ClientSecrets = { new Secret("secret".Sha256()) },
+                new Client
+                {
+                    ClientId = "chrisdddmvc",
+                    ClientSecrets = { new Secret("secret".Sha256()) },
 
-                //    AllowedGrantTypes = GrantTypes.Code,
-                //    RequireConsent = false,
-                //    RequirePkce = true,
-                //    AlwaysIncludeUserClaimsInIdToken=true,//将用户所有的claims包含在IdToken内
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequireConsent = false,
+                    RequirePkce = true,
+                    AlwaysIncludeUserClaimsInIdToken=true,//将用户所有的claims包含在IdToken内
                 
-                //    // where to redirect to after login
-                //    RedirectUris = { "http://ddd.neters.club/signin-oidc" },
+                    // where to redirect to after login
+                    RedirectUris = { "http://ddd.neters.club/signin-oidc" },
 
-                //    // where to redirect to after logout
-                //    PostLogoutRedirectUris = { "http://ddd.neters.club/signout-callback-oidc" },
+                    // where to redirect to after logout
+                    PostLogoutRedirectUris = { "http://ddd.neters.club/signout-callback-oidc" },
 
-                //    AllowedScopes = new List<string>
-                //    {
-                //        IdentityServerConstants.StandardScopes.OpenId,
-                //        IdentityServerConstants.StandardScopes.Profile,
-                //        IdentityServerConstants.StandardScopes.Email,
-                //        "roles",
-                //        "rolename",
-                //    }
-                //},
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "roles",
+                        "rolename",
+                    }
+                },
                 // 5、控制台客户端
                 new Client
                 {
@@ -185,35 +185,35 @@ namespace Blog.IdentityServer
                     }
                 },
                 // 6、mvp 后端blazor.server项目
-                //new Client
-                //{
-                //    ClientId = "blazorserver",
-                //    ClientSecrets = { new Secret("secret".Sha256()) },
+                new Client
+                {
+                    ClientId = "blazorserver",
+                    ClientSecrets = { new Secret("secret".Sha256()) },
 
-                //    AllowedGrantTypes = GrantTypes.Code,
-                //    RequireConsent = false,
-                //    RequirePkce = true,
-                //    AlwaysIncludeUserClaimsInIdToken=true,//将用户所有的claims包含在IdToken内
-                //    AllowAccessTokensViaBrowser = true,
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequireConsent = false,
+                    RequirePkce = true,
+                    AlwaysIncludeUserClaimsInIdToken=true,//将用户所有的claims包含在IdToken内
+                    AllowAccessTokensViaBrowser = true,
                 
-                //    // where to redirect to after login
-                //    RedirectUris = { "https://mvp.neters.club/signin-oidc" },
+                    // where to redirect to after login
+                    RedirectUris = { "https://mvp.neters.club/signin-oidc" },
 
-                //    AllowedCorsOrigins =     { "https://mvp.neters.club" },
+                    AllowedCorsOrigins =     { "https://mvp.neters.club" },
                    
-                //    // where to redirect to after logout
-                //    PostLogoutRedirectUris = { "https://mvp.neters.club/signout-callback-oidc" },
+                    // where to redirect to after logout
+                    PostLogoutRedirectUris = { "https://mvp.neters.club/signout-callback-oidc" },
 
-                //    AllowedScopes = new List<string>
-                //    {
-                //        IdentityServerConstants.StandardScopes.OpenId,
-                //        IdentityServerConstants.StandardScopes.Profile,
-                //        IdentityServerConstants.StandardScopes.Email,
-                //        "roles",
-                //        "rolename",
-                //        "blog.core.api"
-                //    }
-                //},
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "roles",
+                        "rolename",
+                        "blog.core.api"
+                    }
+                },
 
                 // 7、测试 hybrid 模式
                 new Client

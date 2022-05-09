@@ -33,6 +33,32 @@ namespace Blog.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication()
+                .AddWeixin("Weixin", options => { 
+                options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
+               
+                    options.ClientId = Configuration.GetSection("Weixin:WeixinAppId").Value;
+                    options.ClientSecret = Configuration.GetSection("Weixin:WeixinAppSec").Value; 
+                })
+                //.AddOpenIdConnect("oidc","BanLantech IdentityServer", options =>
+                //{
+                //    options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                //    options.SignOutScheme = IdentityServer4.IdentityServerConstants.SignoutScheme;
+                //    options.SaveTokens = true;
+
+                //    options.Authority = "https://demo.identityserver.io/";
+                //    options.ClientId = "interactive.confidential";
+                //    options.ClientSecret = "secret";
+                //    options.ResponseType = "code";
+
+                //    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                //    {
+                //        NameClaimType = "name",
+                //        RoleClaimType = "role"
+                //    };
+                //})
+                
+                ;
             services.AddSameSiteCookiePolicy();
 
             string connectionStringFile = Configuration.GetConnectionString("DefaultConnection_file");
