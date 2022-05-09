@@ -3,7 +3,7 @@ docker stop idscontainer
 # 删除容器
 docker rm idscontainer
 # 删除镜像
-docker rmi laozhangisphi/idsimg
+docker rmi quakeguobiao/idsimg
 # 切换目录
 #cd /home/Blog.IdentityServer
 # 发布项目
