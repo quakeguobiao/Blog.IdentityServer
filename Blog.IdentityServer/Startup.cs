@@ -40,6 +40,12 @@ namespace Blog.IdentityServer
                     options.ClientId = Configuration.GetSection("Weixin:WeixinAppId").Value;
                     options.ClientSecret = Configuration.GetSection("Weixin:WeixinAppSec").Value; 
                 })
+                .AddGoogle("Google", options => {
+                    options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
+                    options.ClientId = Configuration.GetSection("Google:WeixinAppId").Value;
+                    options.ClientSecret = Configuration.GetSection("Google:WeixinAppSec").Value;
+                })
                 //.AddOpenIdConnect("oidc","BanLantech IdentityServer", options =>
                 //{
                 //    options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
