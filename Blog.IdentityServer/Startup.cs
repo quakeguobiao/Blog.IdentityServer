@@ -33,13 +33,13 @@ namespace Blog.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication()
-                .AddWeixin("Weixin", options => {
-                    options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
+            //services.AddAuthentication()
+            //    .AddWeixin("Weixin", options => {
+            //        options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    options.ClientId = Configuration.GetSection("Weixin:WeixinAppId").Value;
-                    options.ClientSecret = Configuration.GetSection("Weixin:WeixinAppSec").Value;
-                });
+            //        options.ClientId = Configuration.GetSection("Weixin:WeixinAppId").Value;
+            //        options.ClientSecret = Configuration.GetSection("Weixin:WeixinAppSec").Value;
+            //    });
             services.AddAuthentication()
                 .AddGoogle("Google", options => {
                     options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
