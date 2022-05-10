@@ -9,15 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\MigrationsMySql\**" />
     <Compile Remove="Data\Migrations\**" />
     <Compile Remove="Migrations\**" />
     <Compile Remove="Views\Oauth2\**" />
+    <Content Remove="Data\MigrationsMySql\**" />
     <Content Remove="Data\Migrations\**" />
     <Content Remove="Migrations\**" />
     <Content Remove="Views\Oauth2\**" />
+    <EmbeddedResource Remove="Data\MigrationsMySql\**" />
     <EmbeddedResource Remove="Data\Migrations\**" />
     <EmbeddedResource Remove="Migrations\**" />
     <EmbeddedResource Remove="Views\Oauth2\**" />
+    <None Remove="Data\MigrationsMySql\**" />
     <None Remove="Data\Migrations\**" />
     <None Remove="Migrations\**" />
     <None Remove="Views\Oauth2\**" />
