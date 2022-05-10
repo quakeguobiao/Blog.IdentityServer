@@ -141,7 +141,7 @@ namespace Blog.IdentityServer
             //    options.KnownProxies.Clear();
             //});
             services.AddAuthentication()
-                .AddWeixin("Weixin", options =>
+                .AddWeixin( options =>
                 {
                     options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
@@ -149,7 +149,7 @@ namespace Blog.IdentityServer
                     options.ClientSecret = Configuration.GetSection("Weixin:WeixinAppSec").Value;
                 })
 
-                .AddGoogle("Google", options =>
+                .AddGoogle( options =>
                 {
                     options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
@@ -209,7 +209,8 @@ namespace Blog.IdentityServer
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
                     // options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
-                });
+                })
+                ;
 
             builder.AddDeveloperSigningCredential();
             if (Environment.IsDevelopment())

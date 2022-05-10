@@ -17,6 +17,6 @@ docker build -t quakeguobiao/idsimg .
 
 docker push quakeguobiao/idsimg:latest
 # 生成容器
-docker run --name=idscontainer -d -v /home/identityserver/appsettings.json:/app/appsettings.json -v /home/identityserver/Log/:/app/Log -v /etc/localtime:/etc/localtime -it -p 5004:5004 quakeguobiao/idsimg
+docker run --name=idscontainer -d -v /home/identityserver/appsettings.json:/app/appsettings.json -v /home/identityserver/Log/:/app/Logs -v /etc/localtime:/etc/localtime -it -p 5004:5004 quakeguobiao/idsimg
 # 启动容器
 #docker start idscontainer
