@@ -50,7 +50,7 @@ namespace IdentityServer4.Quickstart.UI
         /// initiate roundtrip to external authentication provider
         /// </summary>
         [HttpGet]
-        public IActionResult Challenge(string scheme, string returnUrl)
+        public IActionResult Challenge(string provider, string returnUrl)
         {
             if (string.IsNullOrEmpty(returnUrl)) returnUrl = "~/";
 
@@ -68,11 +68,11 @@ namespace IdentityServer4.Quickstart.UI
                 Items =
                 {
                     { "returnUrl", returnUrl },
-                    { "scheme", scheme },
+                    { "scheme", provider },
                 }
             };
 
-            return Challenge(props, scheme);
+            return Challenge(props, provider);
 
         }
 

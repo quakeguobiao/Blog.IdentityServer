@@ -17,6 +17,8 @@ using Blog.IdentityServer.Authorization;
 using Microsoft.AspNetCore.HttpOverrides;
 using IdentityServer4.Extensions;
 using AspNetCoreRateLimit;
+using AspNet.Security.OAuth.Weixin;
+using Microsoft.AspNetCore.Authentication.Google;
 
 namespace Blog.IdentityServer
 {
@@ -141,7 +143,7 @@ namespace Blog.IdentityServer
             //    options.KnownProxies.Clear();
             //});
             services.AddAuthentication()
-                .AddWeixin( options =>
+                .AddWeixin( "Weixin",options =>
                 {
                     options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
