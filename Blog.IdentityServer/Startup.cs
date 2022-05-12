@@ -143,7 +143,7 @@ namespace Blog.IdentityServer
             //    options.KnownProxies.Clear();
             //});
             services.AddAuthentication()
-                .AddWeixin( "Weixin",options =>
+                .AddWeixin("Weixin", options =>
                 {
                     options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
@@ -151,7 +151,7 @@ namespace Blog.IdentityServer
                     options.ClientSecret = Configuration.GetSection("Weixin:WeixinAppSec").Value;
                 })
 
-                .AddGoogle( options =>
+                .AddGoogle("Google", options =>
                 {
                     options.SignInScheme = IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
@@ -177,7 +177,7 @@ namespace Blog.IdentityServer
 
                 // 自定义验证，可以不走Identity
                 //.AddResourceOwnerValidator<ResourceOwnerPasswordValidator>()
-                .AddExtensionGrantValidator<WeiXinOpenGrantValidator>()
+                //.AddExtensionGrantValidator<WeiXinOpenGrantValidator>()
 
                 // 数据库模式
                 .AddAspNetIdentity<ApplicationUser>()

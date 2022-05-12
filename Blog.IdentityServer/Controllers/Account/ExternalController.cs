@@ -64,7 +64,7 @@ namespace IdentityServer4.Quickstart.UI
             // start challenge and roundtrip the return URL and scheme 
             var props = new AuthenticationProperties
             {
-                RedirectUri = Url.Action(nameof(Callback)),
+                RedirectUri = Url.Action(nameof(ExternalLoginCallback)),
                 Items =
                 {
                     { "returnUrl", returnUrl },
@@ -80,7 +80,7 @@ namespace IdentityServer4.Quickstart.UI
         /// Post processing of external authentication
         /// </summary>
         [HttpGet]
-        public async Task<IActionResult> Callback()
+        public async Task<IActionResult> ExternalLoginCallback()
         {
             // read external identity from the temporary cookie
             var result = await HttpContext.AuthenticateAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);
@@ -219,6 +219,7 @@ namespace IdentityServer4.Quickstart.UI
             var user = new ApplicationUser
             {
                 UserName = Guid.NewGuid().ToString(),
+                Email = email,
             };
             var identityResult = await _userManager.CreateAsync(user);
             if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
